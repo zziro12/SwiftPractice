@@ -58,3 +58,46 @@ totalPrice(productPrice: 300, count: 3)
 print(totalPrice(productPrice: 300, count: 3))
 let funcresult = totalPrice(productPrice: 300, count: 3)
 print(funcresult)
+
+// 1. 성, 이름 받아서 fullname 출력함수
+func printFullName(firstName : String, lastName : String ){
+    print("이름은 \(firstName + " " + lastName)입니다.")
+}
+printFullName(firstName: "Hong", lastName: "gildong")
+// 2. 1번에서 만든 함수인데, 파라미터 이름을 제거하고 fullname 출력하는 함수 만들기
+func printFullNameUnderScore(_ firstName : String, _ lastName : String ){
+    print("이름은 \(firstName + " " + lastName)입니다.")
+}
+printFullNameUnderScore( "Choi", "jinho")
+
+// 3. 성, 이름을 받아서 fullname return 하는 함수만들기
+func printFullNameReturn(firstName : String, lastName : String ) -> String{
+    return "\(firstName)  \(lastName)"
+}
+let funcResult = printFullNameReturn(firstName: "Hi", lastName: "Siri")
+print(funcResult)
+
+//In-out Parameter
+
+var value = 3
+func incrementAndPrint( _ value : inout Int){
+    value += 1
+    print(value)
+}
+incrementAndPrint(&value)
+
+// ---- function as a param
+func add(_ a : Int , _ b : Int)-> Int {
+    return a + b
+}
+func subtract(_ a : Int , _ b : Int)-> Int {
+    return a - b
+}
+var function = add
+function(3,3)
+
+func printResult(_ function : (Int,Int) -> Int,_ a : Int , _ b : Int){
+    let result = function(a,b)
+    print(result)
+}
+printResult(subtract, 5, 4)
