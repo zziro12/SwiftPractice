@@ -72,3 +72,62 @@ let lastThree = evenNumbers.suffix(3)
 evenNumbers
 
 //많이 쓰이는것 .isEmpty, .count,
+
+//Dictionary
+var scoreDic: [String : Int] = ["jon" : 80, "jay" : 90]
+//var scoreDic : Dictionary<String, Int> = ["jon" : 80, "jay" : 90]
+
+scoreDic["jon"]
+scoreDic["jackson"]
+
+if let score = scoreDic["jackson"] {
+    score
+}else{
+    print("score 없음")
+}
+
+scoreDic.isEmpty
+scoreDic.count
+
+//dictionary update
+scoreDic["jon"] = 100
+
+scoreDic
+//dictionary add , remove
+scoreDic["sim"] = 20
+scoreDic
+scoreDic["sim"] = nil
+scoreDic
+
+for (name, score) in scoreDic {
+    print(name,"hi", score)
+}
+
+for key in scoreDic.keys {
+    print(key)
+}
+
+for value in scoreDic.values {
+    print(value)
+}
+//1. 이름, 직업, 도시 딕셔너리 만들기
+//var nameJobCity : Dictionary<String, String> = ["name" : "jinho", "job" : "student" , "city" : "seoul"]
+var nameJobCity : [String : String] = ["name" : "jinho", "job" : "student" , "city" : "seoul"]
+nameJobCity
+//2. 도시를 부산으로 업데이트 하기
+nameJobCity["city"] = "busan"
+
+
+//3. 딕셔너리를 받아서 이름과 도시 프린트하는 함수 만들기
+func printNameCity(dic: [String : String]){
+    if let name = dic["name"], let city = dic["city"] {
+         print(name, city)
+    }else{
+        print("Cannot find ")
+    }
+   
+}
+printNameCity(dic: nameJobCity)
+
+
+
