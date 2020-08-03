@@ -101,3 +101,107 @@ func printResult(_ function : (Int,Int) -> Int,_ a : Int , _ b : Int){
     print(result)
 }
 printResult(subtract, 5, 4)
+
+
+// Function ++
+struct Lecture {
+    var title : String
+    var maxStudents : Int = 10
+    var numOfRegistered : Int = 0
+    
+    func remainSeats() -> Int {
+        let remainSeats = maxStudents - numOfRegistered
+        return remainSeats
+    }
+    // method가 struct에 있는 stored property를 변경시킬경우는 mutating을 붙여야됨
+    mutating func register() {
+        // 등록된 학생수 증가시키기
+        numOfRegistered += 1
+    }
+    
+    static let target : String = "Anybody want to learn something"
+    static func academy() -> String {
+        return "programing academy"
+    }
+}
+    
+
+var lec = Lecture(title: "iOS Basic")
+
+//func remainSeats(of lec : Lecture ) -> Int {
+//    let remainSeats = lec.maxStudents - lec.numOfRegistered
+//    return remainSeats
+//}
+
+//remainSeats(of: lec)
+lec.remainSeats()
+
+lec.register()
+lec.register()
+lec.register()
+lec.remainSeats()
+
+Lecture.target
+Lecture.academy()
+
+//절대값
+struct Math {
+    static func abs(value: Int) -> Int {
+        if value > 0 {
+            return value
+        }else {
+            return -value
+        }
+    }
+    
+    
+}
+
+Math.abs(value: -30)
+
+//method 확장    제곱, 반값
+extension Math {
+    static func square(value: Int) -> Int {
+        return value * value
+    }
+    
+    static func half(value: Int) -> Int {
+        return value / 2
+    }
+}
+
+//결과적을 보면 아래 코드와 같지만 상황에 따라 효율적이다.
+//struct Math {
+//    static func abs(value: Int) -> Int {
+//        if value > 0 {
+//            return value
+//        }else {
+//            return -value
+//        }
+//    }
+//
+//    static func square(value: Int) -> Int {
+//        return value * value
+//    }
+//
+//    static func half(value: Int) -> Int {
+//        return value / 2
+//    }
+//}
+
+Math.half(value: 50)
+
+var testValue : Int = 3
+//Int에 extension 해보기
+extension Int {
+    func square() -> Int {
+        return self * self
+    }
+    
+    func half() -> Int {
+        return self / 2
+    }
+}
+
+testValue.square()
+testValue.half()
