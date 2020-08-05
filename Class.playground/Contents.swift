@@ -134,3 +134,15 @@ personClass2.firstName
 //
 //var person1 = Person(firstName: "gildong", lastName: "Hong")
 //var person2 = Person(firstName: "gildong", lastName: "Hong")
+
+
+// think todo app class
+class Todo {
+    var todoList : String
+    var todoState : String
+    
+    init(todoList : String, todoState : String) {
+        self.todoList = todoList
+        self.todoState = todoState
+    }
+}
