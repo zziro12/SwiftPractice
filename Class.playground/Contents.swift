@@ -59,6 +59,7 @@ var personStr2 = personStr1
 var personClass1 = PersonClass(firstName: "jinho", lastName: "Choi")
 var personClass2 = personClass1
 
+
 personStr2.firstName = "woojin"
 personStr1.firstName
 personStr2.firstName
