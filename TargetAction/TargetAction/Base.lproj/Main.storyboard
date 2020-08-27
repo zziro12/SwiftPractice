@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,82 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TargetAction" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAq-mc-gPh">
+                                <rect key="frame" x="179" y="546" width="56" height="51"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <state key="normal" title="버튼"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bed-jb-bQf">
+                                <rect key="frame" x="70" y="254" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lc7-DL-QNp">
+                                <rect key="frame" x="70" y="298" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZTh-Vc-keM">
+                                <rect key="frame" x="70" y="342" width="274" height="192"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZTh-Vc-keM" secondAttribute="height" multiplier="10:7" id="CX6-FG-t0e"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YcD-1k-VAo">
+                                <rect key="frame" x="70" y="54" width="274" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YcD-1k-VAo" secondAttribute="height" multiplier="15:8" id="fHe-6X-wFI"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VSA-xf-8EB">
+                                <rect key="frame" x="70" y="210" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Lc7-DL-QNp" firstAttribute="top" secondItem="Bed-jb-bQf" secondAttribute="bottom" constant="10" id="0Hm-Hr-eH4"/>
+                            <constraint firstItem="Bed-jb-bQf" firstAttribute="top" secondItem="VSA-xf-8EB" secondAttribute="bottom" constant="10" id="3IA-bU-b5P"/>
+                            <constraint firstItem="pAq-mc-gPh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7W8-WQ-dmq"/>
+                            <constraint firstItem="VSA-xf-8EB" firstAttribute="top" secondItem="YcD-1k-VAo" secondAttribute="bottom" constant="10" id="9Wg-hc-QL0"/>
+                            <constraint firstItem="Lc7-DL-QNp" firstAttribute="leading" secondItem="Bed-jb-bQf" secondAttribute="leading" id="AQZ-5Q-Gs4"/>
+                            <constraint firstItem="ZTh-Vc-keM" firstAttribute="top" secondItem="Lc7-DL-QNp" secondAttribute="bottom" constant="10" id="W0V-Iq-0gq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YcD-1k-VAo" secondAttribute="trailing" constant="70" id="XoT-hW-PRt"/>
+                            <constraint firstItem="pAq-mc-gPh" firstAttribute="top" secondItem="ZTh-Vc-keM" secondAttribute="bottom" constant="12" id="Y07-Og-I51"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VSA-xf-8EB" secondAttribute="trailing" constant="70" id="aq1-O4-s6L"/>
+                            <constraint firstItem="Bed-jb-bQf" firstAttribute="trailing" secondItem="VSA-xf-8EB" secondAttribute="trailing" id="cjO-cf-97c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZTh-Vc-keM" secondAttribute="trailing" constant="70" id="frM-Og-4lc"/>
+                            <constraint firstItem="ZTh-Vc-keM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="l16-Z2-9Ye"/>
+                            <constraint firstItem="YcD-1k-VAo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="m8s-eb-8DZ"/>
+                            <constraint firstItem="Lc7-DL-QNp" firstAttribute="trailing" secondItem="Bed-jb-bQf" secondAttribute="trailing" id="nOo-gS-Yse"/>
+                            <constraint firstItem="VSA-xf-8EB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="niZ-Bu-e8L"/>
+                            <constraint firstItem="Bed-jb-bQf" firstAttribute="leading" secondItem="VSA-xf-8EB" secondAttribute="leading" id="osK-Tu-FrA"/>
+                            <constraint firstItem="YcD-1k-VAo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="ttY-z6-blg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="pAq-mc-gPh" id="Q0e-Au-HTn"/>
+                        <outlet property="image" destination="YcD-1k-VAo" id="hB3-3M-vMg"/>
+                        <outlet property="textField1" destination="VSA-xf-8EB" id="UPl-Qr-ab7"/>
+                        <outlet property="textField2" destination="Bed-jb-bQf" id="Ilv-5b-FKW"/>
+                        <outlet property="textField3" destination="Lc7-DL-QNp" id="KEf-Ra-ufT"/>
+                        <outlet property="textView" destination="ZTh-Vc-keM" id="mDc-7z-oIQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="115"/>
         </scene>
     </scenes>
 </document>
