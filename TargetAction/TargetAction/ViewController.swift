@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,
+UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var image : UIImageView!
     
@@ -19,13 +20,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView : UITextView!
     
     @IBOutlet weak var button : UIButton!
-    //        let objects = [image, textField1,textField2,textField3 ,textView]
-    //        let objects = [textField1,textField2,textField3 ]
-            
-    //        [idTextField, pwdTextField, pwdCheckTextField].forEach { (field) in
-    //                field?.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
-    //        }
     
+    var setImage : UIImage? = nil
+    
+    lazy var imagePicker : UIImagePickerController = {
+        let picker : UIImagePickerController = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        return picker
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,41 +37,49 @@ class ViewController: UIViewController {
         
         self.button.isEnabled = false
         
-//        let objects = [textField1,textField2,textField3 ]
-//        objects.forEach{ obj in obj?.addTarget(self, action: #selector(self.editingChanged(_:)), for: .editingChanged)
-//        }
+
+        image.isUserInteractionEnabled = true
+        let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchImageView(sender:)))
+        image.addGestureRecognizer(imageTapGesture)
         
-        
-        
+        let objects = [textField1,textField2,textField3 ]
+        objects.forEach{ obj in obj?.addTarget(self, action: #selector(self.editingChanged(_:)), for: .editingChanged)
+        }
 
     }
-    
-    @objc private func Changed(_ image : UIImageView) {
-        guard let check = image.image, check.isProxy()  else {
-            return self.button.isEnabled = false
+    @objc func touchImageView(sender : UITapGestureRecognizer){
+        //check gesture.state
+        if(sender.state == .ended ){
+            print("touch imageView")
+            self.present(self.imagePicker, animated: true, completion: nil)
         }
-        return self.button.isEnabled = true
     }
     
-    @objc private func editingChanged(_ textField : UITextField) {
-        guard let top = textField1.text, !top.isEmpty,
-        let middle = textField2.text, !middle.isEmpty,
-        let bottom = textField3.text, !bottom.isEmpty else {
-            return self.button.isEnabled = false
-        }
-        return self.button.isEnabled = true
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        setImage = editedImage ?? originalImage
+        // editedImage가 nil이면 originalImage를 넣으라는 뜻
+        image.contentMode = .scaleAspectFit
+        image.image = setImage
+        
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
-//    @objc private func editingChanged(_ textField: UITextField) {
-//        guard
-//            let id = idTextField.text, !id.isEmpty,
-//            let pwd = pwdTextField.text, !pwd.isEmpty,
-//            let pwdCheck = pwdCheckTextField.text, !pwdCheck.isEmpty
-//            else {
-//                self.nextButtonState(false)
-//                return
-//        }
-//        self.nextButtonState(true)
-//    }
+    
+    @objc private func editingChanged(_ textField: UITextField) {
+        if setImage != nil {
+            guard
+                let top = textField1.text, !top.isEmpty,
+                let mid = textField2.text, !mid.isEmpty,
+                let but = textField3.text, !but.isEmpty
+                else {
+                    return self.button.isEnabled = false
+            }
+            return self.button.isEnabled = true
+        }
+    }
 }
 
