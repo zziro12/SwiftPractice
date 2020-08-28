@@ -69,17 +69,20 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     }
     
     
-    @objc private func editingChanged(_ textField: UITextField) {
+    @objc private func editingChanged(_ object: Any) {
         if setImage != nil {
             guard
                 let top = textField1.text, !top.isEmpty,
                 let mid = textField2.text, !mid.isEmpty,
-                let but = textField3.text, !but.isEmpty
+                let but = textField3.text, !but.isEmpty,
+                let view = textView.text, !view.isEmpty,
+                mid == but
                 else {
                     return self.button.isEnabled = false
             }
             return self.button.isEnabled = true
         }
     }
+    
 }
 
