@@ -13,6 +13,7 @@
 		E26BF4282518EDC600D1C261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26BF4262518EDC600D1C261 /* Main.storyboard */; };
 		E26BF42A2518EDCB00D1C261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E26BF4292518EDCB00D1C261 /* Assets.xcassets */; };
 		E26BF42D2518EDCB00D1C261 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26BF42B2518EDCB00D1C261 /* LaunchScreen.storyboard */; };
+		E2AD197E25222A0900B66C92 /* ImageZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD197D25222A0800B66C92 /* ImageZoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E26BF4292518EDCB00D1C261 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E26BF42C2518EDCB00D1C261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E26BF42E2518EDCB00D1C261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2AD197D25222A0800B66C92 /* ImageZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E26BF4292518EDCB00D1C261 /* Assets.xcassets */,
 				E26BF42B2518EDCB00D1C261 /* LaunchScreen.storyboard */,
 				E26BF42E2518EDCB00D1C261 /* Info.plist */,
+				E2AD197D25222A0800B66C92 /* ImageZoomViewController.swift */,
 			);
 			path = PhotosExample;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				E26BF4252518EDC600D1C261 /* ViewController.swift in Sources */,
 				E26BF4212518EDC600D1C261 /* AppDelegate.swift in Sources */,
 				E26BF4232518EDC600D1C261 /* SceneDelegate.swift in Sources */,
+				E2AD197E25222A0900B66C92 /* ImageZoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

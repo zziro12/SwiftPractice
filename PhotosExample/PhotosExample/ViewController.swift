@@ -64,6 +64,20 @@ class ViewController: UIViewController {
         //포토라이브러리가 변화될때마다 uitableview?딜리게이트 메소드가 실행될것
         PHPhotoLibrary.shared().register(self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: ImageZoomViewController = segue.destination as? ImageZoomViewController else {
+            return
+        }
+        guard let cell: UITableViewCell = sender as? UITableViewCell else {
+            return
+        }
+        guard let index: IndexPath = self.tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        nextViewController.asset = self.fetchResult[index.row]
+    }
 }
 
 extension ViewController: UITableViewDataSource {
