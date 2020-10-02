@@ -62,6 +62,8 @@ class ViewController: UIViewController {
             })
         case .restricted:
             print("접근 제한")
+        case .limited:
+            print("접근 제한")
         @unknown default:
             print("error")
         }
