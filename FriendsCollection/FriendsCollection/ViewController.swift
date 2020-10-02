@@ -42,6 +42,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        let layout = UICollectionViewFlowLayout()
+        
+//        let numberOfItem = 3
+//        let width: CGFloat = (collectionView.bounds.width/CGFloat(numberOfItem)) - 1
+//        let height: CGFloat = width
+//
+//        let width1: CGFloat = (UIScreen.main.bounds.width/CGFloat(numberOfItem)) - 1
+//        let height1: CGFloat = width1
+//        layout.itemSize = CGSize(width: width1, height: height1)
+        collectionView.collectionViewLayout = layout
+        
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "friends") else {
             return
@@ -55,5 +68,23 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
 
+    
 }
-
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let numberOfItem = 3
+        let width: CGFloat = (UIScreen.main.bounds.width/CGFloat(numberOfItem)) - 1
+        let height: CGFloat = width
+    
+        return CGSize(width: width, height: height)
+    }
+    //아이템간간격
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    //라인간격
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+}
